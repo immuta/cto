@@ -24,8 +24,7 @@ def test_metadatum_from_object():
 def test_regex_detectors():
 
     tags = ["@pii", "@w3c::bunny"]
-    attributes = ["@state=ohio"]
-    json = ['@meta({"google":"bug"})']
+    json = ['@state("ohio")', '@meta({"google":"bug"})']
 
 def test_comparison_ignores_spaces():
     c = '@owner({"name":"jerry"})'

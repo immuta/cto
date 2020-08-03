@@ -3,11 +3,11 @@ import pytest
 
 
 def test_comment_can_be_converted_to_dict():
-    c = 'Example description. @funny_guy @pii @owner=jerry @origin({"country":"US"})'
+    c = 'Example description. @funny_guy @pii @owner(jerry) @origin({"country":"US"})'
     o = {
         "description": "Example description.",
         "tags": ["funny_guy", "pii"],
-        "owner": "jerry",
+        "owner": 'jerry',
         "origin": {"country": "US"}}
 
     mc = cto.Metadatum(c)
@@ -22,6 +22,6 @@ def test_comment_can_be_converted_to_dict():
     assert mo.to_object() == o
     assert mo.to_comment() == c
     
-    for a in ["description", "tags", "attributes", "meta"]:
+    for a in ["description", "tags", "meta"]:
         assert getattr(mc, a) == getattr(mo, a)
 
