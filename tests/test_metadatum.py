@@ -1,3 +1,4 @@
+from cto.metadatum import Metadatum
 import cto
 import pytest
 
@@ -26,3 +27,8 @@ def test_regex_detectors():
     attributes = ["@state=ohio"]
     json = ['@meta({"google":"bug"})']
 
+def test_comparison_ignores_spaces():
+    c = '@owner({"name":"jerry"})'
+    m = Metadatum(c)
+
+    assert m.to_comment() == c

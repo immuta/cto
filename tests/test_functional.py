@@ -3,7 +3,7 @@ import pytest
 
 
 def test_comment_can_be_converted_to_dict():
-    c = 'Example description. @funny_guy @pii @owner=jerry @origin({"country": "US"})'
+    c = 'Example description. @funny_guy @pii @owner=jerry @origin({"country":"US"})'
     o = {
         "description": "Example description.",
         "tags": ["funny_guy", "pii"],

@@ -29,13 +29,14 @@ class Metadatum:
         return output
 
     def to_comment(self):
+        "Dumps metadata out to a string."
         compiled = []
         compiled.append(self.description)
         compiled += [f"@{tag}" for tag in self.tags]
         compiled += [f"@{k}={v}" for k, v in self.attributes.items()]
-        compiled += [f"@{k}({json.dumps(v)})" for k, v in self.meta.items()]
+        compiled += [f"@{k}({json.dumps(v, separators=(',', ':'))})" for k, v in self.meta.items()]
         logging.info("Compiled text units: %s", compiled)
-        return " ".join([txt for txt in compiled if txt is not None])
+        return " ".join([txt for txt in compiled if txt is not None]).strip()
 
     def parse_comment(self, comment: str):
         desc_result = self._detect_comment_description(comment)
