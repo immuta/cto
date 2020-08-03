@@ -20,7 +20,7 @@ m.tags
     ["pii", "location"]
 
 m.meta
-    {"origin": {"provider": "us.gov", "date": "2020-08-20"}}
+    {"country": "usa", "origin": {"provider": "us.gov", "date": "2020-08-20"}}
 ```
 
 This standardization allows us to rewrite the comment as an object, e.g. in catalogs.
@@ -30,6 +30,7 @@ m.to_object()
     {
         "description": "A location column.",
         "tags": ["pii", "location"],
+        "country": "usa",
         "origin": {"provider": "us.gov", "date": "2020-08-20"}
     }
 ```
