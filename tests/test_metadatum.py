@@ -25,3 +25,4 @@ def test_regex_detectors():
     tags = ["@pii", "@w3c::bunny"]
     attributes = ["@state=ohio"]
     json = ['@meta({"google":"bug"})']
+

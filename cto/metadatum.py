@@ -32,8 +32,8 @@ class Metadatum:
         compiled = []
         compiled.append(self.description)
         compiled += [f"@{tag}" for tag in self.tags]
-        compiled += [f"@{k}={v}" for k, v in self.attributes]
-        compiled += [f"@{k}({json.dumps(v)})" for k, v in self.meta]
+        compiled += [f"@{k}={v}" for k, v in self.attributes.items()]
+        compiled += [f"@{k}({json.dumps(v)})" for k, v in self.meta.items()]
         logging.info("Compiled text units: %s", compiled)
         return " ".join([txt for txt in compiled if txt is not None])
 
